@@ -1,6 +1,7 @@
 package edu.studio.issue;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Issue {
 
@@ -86,6 +87,48 @@ public class Issue {
 
     public void setCreatedAt(Date now) {
         this.createdAt = now;
-        
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        return id == other.getId();
+    }
+
+    @Override
+    public int compareTo(Issue o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+    
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return super.toString();
     }
 }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

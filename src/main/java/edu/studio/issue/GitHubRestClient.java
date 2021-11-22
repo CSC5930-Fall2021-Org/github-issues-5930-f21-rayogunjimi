@@ -8,13 +8,12 @@ public class GitHubRestClient {
 
     public static void main(String[] args) {
         GitHubRestClient demo = new GitHubRestClient();
-
-        demo.requestViaBearerToken(args);
+        demo.getIssues(args[0]);
     }
 
-    protected String requestViaBearerToken(String[] args) {
+    public String getIssues(String token) {
         String responseBody = Unirest.get(TEST_AREA_URL)
-                .header("Authorization", "Bearer " + args[0])
+                .header("Authorization", "Bearer " + token)
                 .asString()
                 .getBody();
 
@@ -22,10 +21,14 @@ public class GitHubRestClient {
         return responseBody;
     }
 
-    public String getIssues(String token) {
-        // TODO Auto-generated method stub
-        return null;
+    public int getStatus(String token) {
+        int responseStatus = Unirest.get(TEST_AREA_URL)
+                .header("Authorization", "Bearer " + token)
+                .asString()
+                .getStatus();
+
+        System.out.println(responseStatus);
+        return responseStatus;
     }
 
-    
 }
