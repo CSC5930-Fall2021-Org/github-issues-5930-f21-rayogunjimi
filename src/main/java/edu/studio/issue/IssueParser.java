@@ -26,8 +26,7 @@ public class IssueParser {
         if (jsonContent != null && !jsonContent.isEmpty()) {
             List<Issue> issues = new ArrayList<Issue>();
             Type collectionType = new TypeToken<List<Issue>>(){}.getType();
-            // issues = 
-            System.out.print(gson.fromJson(jsonContent, collectionType).toString());
+            issues = gson.fromJson(jsonContent, collectionType);
             return issues;
         }
         return null;
