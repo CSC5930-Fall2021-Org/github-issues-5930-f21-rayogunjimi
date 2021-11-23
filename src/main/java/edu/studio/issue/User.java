@@ -2,7 +2,7 @@ package edu.studio.issue;
 
 import java.util.Objects;
 
-public class User implements Comparable<Issue>{
+public class User implements Comparable<User>{
     public User() {}
 
     private long login;
@@ -42,16 +42,19 @@ public class User implements Comparable<Issue>{
     }
 
     @Override
-    public int compareTo(Issue o) {
-        // TODO Auto-generated method stub
-        return 0;
+    public int compareTo(User other) {
+        int issueStatus = 0;
+        if( this.id > other.id) {
+            issueStatus = 1;
+        }
+        else if(this.id < other.id) {
+            issueStatus = -1;
+        }
+        return issueStatus;
     }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return super.toString();
+        return "{login=" + login + ";id=" + id + ";}";
     }
-
-
 }

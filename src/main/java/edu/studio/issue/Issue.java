@@ -3,20 +3,22 @@ package edu.studio.issue;
 import java.util.Date;
 import java.util.Objects;
 
-public class Issue {
+public class Issue implements Comparable<Issue> {
 
-    public Issue() {}
+    public Issue() {
+    }
 
     private long number;
     private long id;
     private String title;
     private String body;
     private Date createdAt;
-    private Date sclosedAt;
+    private Date closedAt;
     private User user;
     private User assignee;
 
     private String state;
+
     public long getNumber() {
         return number;
     }
@@ -30,7 +32,12 @@ public class Issue {
     }
 
     public void setState(String state) {
-        this.state = state;
+        if (state.equals("closed") | state.equals("open") | state.equals("assigned")) {
+            this.state = state;
+        }
+        else {
+            this.state = null;
+        }
     }
 
     public String getTitle() {
@@ -49,12 +56,12 @@ public class Issue {
         this.body = body;
     }
 
-    public Date getSclosedAt() {
-        return sclosedAt;
+    public Date getClosedAt() {
+        return closedAt;
     }
 
-    public void setSclosedAt(Date sclosedAt) {
-        this.sclosedAt = sclosedAt;
+    public void setClosedAt(Date sclosedAt) {
+        this.closedAt = sclosedAt;
     }
 
     public User getAssignee() {
@@ -102,33 +109,26 @@ public class Issue {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        User other = (User) obj;
+        Issue other = (Issue) obj;
         return id == other.getId();
     }
 
     @Override
-    public int compareTo(Issue o) {
-        // TODO Auto-generated method stub
-        return 0;
+    public int compareTo(Issue other) {
+        int issueStatus = 0;
+        if (this.id > other.id) {
+            issueStatus = 1;
+        }
+        else if (this.id < other.id) {
+            issueStatus = -1;
+        }
+        return issueStatus;
     }
-    
+
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return super.toString();
+        return "{number=" + number + ";id=" + id + ";title=" + title + ";body=" + body + ";createdAt="
+                + createdAt.toString() + ";closedAt=" + closedAt.toString() + ";user=" + user.toString() + ";assignee="
+                + assignee.toString() + ";state=" + state + ";}";
     }
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

@@ -16,8 +16,9 @@ public class GitHubRestClient {
                 .header("Authorization", "Bearer " + token)
                 .asString()
                 .getBody();
-
-        System.out.println(responseBody);
+        //final String CRLF = "\r\n";
+        //responseBody = responseBody.replace(CRLF, " ");
+        //System.out.println(responseBody);
         return responseBody;
     }
 
@@ -27,7 +28,7 @@ public class GitHubRestClient {
                 .asString()
                 .getStatus();
 
-        System.out.println(responseStatus);
+        //System.out.println(responseStatus);
         return responseStatus;
     }
 
