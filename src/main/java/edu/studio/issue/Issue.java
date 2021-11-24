@@ -32,12 +32,7 @@ public class Issue implements Comparable<Issue> {
     }
 
     public void setState(String state) {
-        if (state.equals("closed") | state.equals("open") | state.equals("assigned")) {
             this.state = state;
-        }
-        else {
-            this.state = null;
-        }
     }
 
     public String getTitle() {
@@ -127,8 +122,13 @@ public class Issue implements Comparable<Issue> {
 
     @Override
     public String toString() {
+        if(this.getAssignee() == null) {
+            return "{number=" + number + ";id=" + id + ";title=" + title + ";body=" + body + ";createdAt="
+                    + this.getCreatedAt() + ";closedAt=" + this.getClosedAt() + ";user=" + this.getUser().toString()
+                    + ";assignee=" + "null" + ";state=" + state + ";}";
+        }
         return "{number=" + number + ";id=" + id + ";title=" + title + ";body=" + body + ";createdAt="
-                + createdAt.toString() + ";closedAt=" + closedAt.toString() + ";user=" + user.toString() + ";assignee="
-                + assignee.toString() + ";state=" + state + ";}";
+        + this.getCreatedAt() + ";closedAt=" + this.getClosedAt() + ";user=" + this.getUser().toString()
+        + ";assignee=" + this.getAssignee().toString() + ";state=" + state + ";}";
     }
 }

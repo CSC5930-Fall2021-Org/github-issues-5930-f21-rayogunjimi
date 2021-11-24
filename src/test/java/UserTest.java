@@ -18,18 +18,18 @@ class UserTest {
     @Test
     void testGetAndSetLogin() {
         User userA = new User();
-        userA.setLogin(99);
+        userA.setLogin("ray");
 
-        assertEquals(userA.getLogin(), 99);
+        assertEquals(userA.getLogin(), "ray");
     }
 
     @Test
     void testToString() {
         User userA = new User();
-        userA.setLogin(99);
+        userA.setLogin("ray");
         userA.setId(55);
 
-        assertEquals(userA.toString(), "{login=99;id=55;}");
+        assertEquals(userA.toString(), "{login=ray;id=55;}");
     }
 
     @Test

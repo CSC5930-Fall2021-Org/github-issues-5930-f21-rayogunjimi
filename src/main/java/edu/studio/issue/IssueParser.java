@@ -11,24 +11,27 @@ import com.google.gson.reflect.TypeToken;
 
 public class IssueParser {
     protected static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-    Gson gson;
+    private final Gson gson;
 
 
     public IssueParser() {
-        gson = new GsonBuilder()
+        this.gson = new GsonBuilder()
                 .setDateFormat(DATE_FORMAT)
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
     }
 
     public List<Issue> parseIssues(String jsonContent) {
-        //System.out.println(jsonContent);
+        List<Issue> issues = new ArrayList<Issue>();
         if (jsonContent != null && !jsonContent.isEmpty()) {
-            List<Issue> issues = new ArrayList<Issue>();
             Type collectionType = new TypeToken<List<Issue>>(){}.getType();
-            issues = gson.fromJson(jsonContent, collectionType);
-            return issues;
+            try {
+                issues = gson.fromJson(jsonContent, collectionType);
+            }
+            catch(Exception e) {
+                System.out.println("Invalid json.");
+            }
         }
-        return null;
+        return issues;
     }
 }

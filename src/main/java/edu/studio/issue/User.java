@@ -5,7 +5,7 @@ import java.util.Objects;
 public class User implements Comparable<User>{
     public User() {}
 
-    private long login;
+    private String login;
     private long id;
 
     public long getId() {
@@ -16,11 +16,11 @@ public class User implements Comparable<User>{
         this.id = id;
     }
 
-    public long getLogin() {
+    public String getLogin() {
         return login;
     }
 
-    public void setLogin(long login) {
+    public void setLogin(String login) {
         this.login = login;
     }
 

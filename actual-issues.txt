@@ -1,0 +1,6 @@
+{number=4;id=1044979109;title=minimal fields;body=null;createdAt=Thu Nov 04 16:47:23 EDT 2021;closedAt=null;user={login=ms-O;id=6319957;};assignee=null;state=open;}
+{number=3;id=1042639334;title=New one added via POST;body=This is our new issue;createdAt=Tue Nov 02 17:37:34 EDT 2021;closedAt=null;user={login=ms-O;id=6319957;};assignee=null;state=open;}
+{number=2;id=1038774698;title=A second issue;body=Something doesn't work;createdAt=Thu Oct 28 17:47:17 EDT 2021;closedAt=Thu Oct 28 17:47:43 EDT 2021;user={login=ms-O;id=6319957;};assignee=null;state=closed;}
+{number=1;id=1038569375;title=A first issue's title;body=This is the description of the issue.
+
+More details go here.;createdAt=Thu Oct 28 14:12:03 EDT 2021;closedAt=null;user={login=ms-O;id=6319957;};assignee={login=uphunyal;id=24360383;};state=open;}

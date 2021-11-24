@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,8 @@ class IssueParserTest {
         String json = null;
         IssueParser parser = new IssueParser();
         List<Issue> issues = parser.parseIssues(json);
-        assertNull(issues);
+        List<Issue> issuesAssert = new ArrayList<Issue>();
+        assertEquals(issues,issuesAssert);
     }
 
     @Test
@@ -26,8 +28,8 @@ class IssueParserTest {
         IssueParser parser = new IssueParser();
         List<Issue> issues = parser.parseIssues(json);
         assertNotNull(issues);
-        assertEquals(2, issues.size());
+        assertEquals(4, issues.size());
         Issue issue0 = issues.get(0);
-        assertEquals(1, issue0.getId());
+        assertEquals(1044979109, issue0.getId());
     }
 }

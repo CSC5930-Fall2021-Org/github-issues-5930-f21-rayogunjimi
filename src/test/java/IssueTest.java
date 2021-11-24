@@ -20,8 +20,6 @@ class IssueTest {
     @Test
     void testGetAndSetState() {
         Issue issueA = new Issue();
-        issueA.setState("closeopen");
-        assertEquals(issueA.getState(), null);
         issueA.setState("closed");
         assertEquals(issueA.getState(), "closed");
     }

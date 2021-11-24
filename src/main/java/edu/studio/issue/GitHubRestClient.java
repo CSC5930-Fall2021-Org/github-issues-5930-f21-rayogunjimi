@@ -6,11 +6,6 @@ public class GitHubRestClient {
 
     protected static final String TEST_AREA_URL = "https://api.github.com/repos/CSC5930-Fall2021-Org/ghi-demos-5930f21/issues?state=all";
 
-    public static void main(String[] args) {
-        GitHubRestClient demo = new GitHubRestClient();
-        demo.getIssues(args[0]);
-    }
-
     public String getIssues(String token) {
         String responseBody = Unirest.get(TEST_AREA_URL)
                 .header("Authorization", "Bearer " + token)
